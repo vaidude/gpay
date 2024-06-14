@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPay Coupons Marketplace</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .btn-primary {
+            background-color: #4a90e2;
+        }
+        .btn-primary:hover {
+            background-color: #3573c8;
+        }
+        .btn-secondary {
+            background-color: #80b5c6;
+        }
+        .btn-secondary:hover {
+            background-color: #35baea;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-blue-600">GPay Coupons</h1>
+            <nav>
+                <a href="#" class="text-gray-700 hover:text-blue-600 mx-4">Home</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600 mx-4">Buy</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600 mx-4">Sell</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600 mx-4">About</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600 mx-4">Contact</a>
+            </nav>
+            <div>
+                <a href="/logout/" class="text-gray-700 hover:text-blue-600 mx-2"><i class="fas fa-user"></i> Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-purple-700 to-blue-500 text-white py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Buy and Sell GPay Coupons Easily</h2>
+            <p class="mb-8">Find the best deals on GPay coupons or sell your unused coupons for cash.</p>
+            <a href="#" class="btn-primary px-6 py-3 rounded-full font-semibold hover:bg-blue-700">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="container mx-auto py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800">Why Choose Us?</h2>
+            <p class="text-gray-600">We offer a secure and easy way to trade GPay coupons.</p>
+        </div>
+        <div class="flex flex-wrap justify-around">
+            <div class="text-center max-w-xs mb-8">
+                <i class="fas fa-lock text-4xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-800">Secure Transactions</h3>
+                <p class="text-gray-600">Your security is our top priority.</p>
+            </div>
+            <div class="text-center max-w-xs mb-8">
+                <i class="fas fa-tags text-4xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-800">Best Deals</h3>
+                <p class="text-gray-600">Get the best prices for buying and selling coupons.</p>
+            </div>
+            <div class="text-center max-w-xs mb-8">
+                <i class="fas fa-headset text-4xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-800">24/7 Support</h3>
+                <p class="text-gray-600">We're here to help, anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coupon Cards Section -->
+    <section class="container mx-auto py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800">Available Coupons</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
+                <img src="https://pbs.twimg.com/media/Cxh1hwXXAAA1Kqp.png" alt="Coupon Image" class="rounded-t-lg">
+                <h3 class="text-2xl font-semibold text-gray-800 mt-4">Netflix Gift Card</h3>
+                <p class="text-gray-600 mt-2">Value: $50</p>
+                <p class="text-gray-600 mt-2">Price: $45</p>
+                <a href="#" class="btn-secondary px-4 py-2 rounded-full mt-4 inline-block hover:bg-blue-700">Buy Now</a>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
+                <img src="https://th.bing.com/th/id/OIP.x2EIhPsuxkl7pw-9viFGNAAAAA?rs=1&pid=ImgDetMain" alt="Coupon Image" class="rounded-t-lg">
+                <h3 class="text-2xl font-semibold text-gray-800 mt-4">Amazon Gift Card</h3>
+                <p class="text-gray-600 mt-2">Value: $100</p>
+                <p class="text-gray-600 mt-2">Price: $90</p>
+                <a href="#" class="btn-secondary px-4 py-2 rounded-full mt-4 inline-block hover:bg-blue-700">Buy Now</a>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
+                <img src="https://media.licdn.com/dms/image/C4D12AQFFwN0XhhbYUg/article-cover_image-shrink_600_2000/0/1651483425473?e=2147483647&v=beta&t=9g8FiWyhsLMn85_bFw6inCxREm-uYtMg8PyDICrAGIk" alt="Coupon Image" class="rounded-t-lg">
+                <h3 class="text-2xl font-semibold text-gray-800 mt-4">Google Play Gift Card</h3>
+                <p class="text-gray-600 mt-2">Value: $25</p>
+                <p class="text-gray-600 mt-2">Price: $22</p>
+                <a href="#" class="btn-secondary px-4 py-2 rounded-full mt-4 inline-block hover:bg-blue-700">Buy Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 GPay Coupons Marketplace. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#" class="text-gray-400 hover:text-white mx-2"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white mx-2"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white mx-2"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white mx-2"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add any JavaScript you need for interactivity
+    </script>
+</body>
+</html>
