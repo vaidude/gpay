@@ -1,0 +1,80 @@
+{% extends "account/base_entrance.html" %}
+{% load template_filters %}
+{% load i18n %}
+{% load allauth account %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        body {
+            background-color: #f9fafb;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    {% block head_title %}
+        {% trans "Sign In" %}
+    {% endblock head_title %}
+    {% block content %}
+    <div class="w-full max-w-md mx-auto mt-5">
+        <div class="card p-6">
+            <h3 class="text-center text-2xl font-semibold mb-4">{% trans "Sign In" %}</h3>
+            <div>
+                {% if not SOCIALACCOUNT_ONLY %}
+                    {% setvar link %}
+                        <a href="{{ signup_url }}" class="text-blue-500 hover:underline">
+                    {% endsetvar %}
+                    {% setvar end_link %}
+                        </a>
+                    {% endsetvar %}
+                    <p class="text-center mb-4">
+                        {% blocktranslate %}If you have not created an account yet, then please {{ link }}sign up{{ end_link }} first.{% endblocktranslate %}
+                    </p>
+                    {% url 'account_login' as login_url %}
+                    <form method="post" action="{{ login_url }}">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <label for="{{ form.username.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.username.label }}</label>
+                            {{ form.username|add_class:"mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" }}
+                        </div>
+                        <div class="mb-4">
+                            <label for="{{ form.password.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ form.password.label }}</label>
+                            {{ form.password|add_class:"mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" }}
+                        </div>
+                        <div class="mb-4 flex items-center">
+                            {{ form.remember|add_class:"h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" }}
+                            <label for="{{ form.remember.id_for_label }}" class="ml-2 block text-sm text-gray-900">{{ form.remember.label }}</label>
+                        </div>
+                        {{ redirect_field }}
+                        <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">{% trans "Sign In" %}</button>
+                    </form>
+                {% endif %}
+                {% if LOGIN_BY_CODE_ENABLED %}
+                    <hr class="my-6">
+                    <h2 class="text-center mb-4">
+                        <a href="{{ request_login_code_url }}" class="w-full inline-block bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">{% trans "Mail me a sign-in code" %}</a>
+                    </h2>
+                {% endif %}
+                {% if SOCIALACCOUNT_ENABLED %}
+                    <hr class="my-6">
+                    {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
