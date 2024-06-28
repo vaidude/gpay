@@ -4,6 +4,7 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
         <title>
             {% block head_title %}
             {% endblock head_title %}
@@ -11,6 +12,8 @@
         {% block extra_head %}
         {% endblock extra_head %}
     </head>
+ 
+    
     <body>
         {% block body %}
             {% if messages %}
@@ -23,12 +26,12 @@
             {% endif %}
             <div>
                 <strong>{% trans "Menu:" %}</strong>
-                <ul>
+                <ul class="flex space-x-4">
                     {% if user.is_authenticated %}
                         {% url 'account_email' as email_url %}
                         {% if email_url %}
-                            <li>
-                                <a href="{{ email_url }}">{% trans "Change Email" %}</a>
+                            <li >
+                                <a class="text-blue-500 hover:text-blue-700" href="{{ email_url }}">{% trans "Change Email" %}</a>
                             </li>
                         {% endif %}
                         {% url 'account_change_password' as change_password_url %}
