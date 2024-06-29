@@ -1,0 +1,27 @@
+{% load allauth socialaccount %}
+{% get_providers as socialaccount_providers %}
+{% if socialaccount_providers %}
+    <div class="mt-6">
+        <ul class="space-y-4">
+            {% for provider in socialaccount_providers %}
+                {% if provider.id == "openid" %}
+                    {% for brand in provider.get_brands %}
+                        {% provider_login_url provider openid=brand.openid_url process=process as href %}
+                        <li>
+                            <a href="{{ href }}" class="flex items-center justify-center w-full py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <span class="ml-2">{{ brand.name }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    {% provider_login_url provider process=process scope=scope auth_params=auth_params as href %}
+                    <li>
+                        <a href="{{ href }}" class="flex items-center justify-center w-full py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <span class="ml-2">{{ provider.name }}</span>
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
