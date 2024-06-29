@@ -22,6 +22,17 @@
         .btn-secondary:hover {
             background-color: #35baea;
         }
+        .social{
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .avtar{
+            border-radius: 50%;
+            width: 50px;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -39,6 +50,10 @@
             <div>
                 <a href="/accounts/logout/" class="text-gray-700 hover:text-blue-600 mx-2"><i class="fas fa-user"></i> Logout</a>
             </div>
+            <div class="social">
+            <h1>Welcome, {{ request.user.username }}</h1>
+            <img class = "avtar" src="{{ request.user.socialaccount_set.all.0.get_avatar_url }}" alt="Profile Picture">
+        </div>
         </div>
     </header>
 
