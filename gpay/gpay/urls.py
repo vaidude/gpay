@@ -20,6 +20,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.views.generic import TemplateView
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apk.urls')),
