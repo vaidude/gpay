@@ -6,8 +6,12 @@ from .models import *
 from django.contrib.auth.decorators import login_required
 
 def indx(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+
     return render(request,'index.html')
-@login_required(login_url="/accounts/login/")
+
+@login_required(login_url='index')
 def home(request):
     return render(request,'home.html')
 

@@ -135,7 +135,9 @@
                 <a href="#" class="text-gray-400 hover:text-white mx-2"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
-        <h1>hello</h1>
+        last logined:
+        <input class="bg-gray-800 text-white" type="datetime-local" name="date" id="date" style=" border: none; outline: none; background-color: transparent;" value="{{ request.user.socialaccount_set.all.0.last_login|date:'Y-m-d\\TH:i' }}" readonly>
+
     </footer>
 
     <script>
